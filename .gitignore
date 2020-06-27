@@ -1,0 +1,3 @@
+beurs-env/
+db.sqlite3
+*.pyc
