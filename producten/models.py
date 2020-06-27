@@ -13,7 +13,7 @@ class Product(models.Model):
     ticker = models.CharField(max_length=5, primary_key=True, unique=True)
     naam = models.CharField(max_length=30)
     type = models.ForeignKey(Type, on_delete=models.PROTECT)
-    dividend = models.BooleanField()
+    met_dividend = models.BooleanField()
 
     def __str__(self):
         return self.ticker
