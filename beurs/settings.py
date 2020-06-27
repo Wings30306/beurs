@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     # IMPORTED APPS
 
     # PROJECT APPS
-    'producten'
+    'producten',
+    'transacties'
 ]
 
 MIDDLEWARE = [
