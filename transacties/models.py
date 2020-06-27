@@ -1,5 +1,9 @@
 from django.db import models
-from products.models import Product
+
+from datetime import date
+
+from producten.models import Product
+
 
 # Create your models here.
 class Aankoop(models.Model):
