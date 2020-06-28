@@ -40,3 +40,10 @@ class WinstDeelname(models.Model):
 
     def __str__(self):
         str(self.datum) + " - " + self.product.ticker
+
+
+class Splitsing(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.PROTECT)
+    datum = models.DateField(default=date.today)
+    factor = models.IntegerField()
+    omgekeerde_splitsing = models.BooleanField()
