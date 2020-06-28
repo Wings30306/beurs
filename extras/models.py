@@ -21,7 +21,7 @@ class ManueleCorrectie(models.Model):
         default="AANKOOP")
 
     def __str__(self):
-        str(self.datum) + " - " + self.product.ticker
+         return self.user.username + " - " + self.product.ticker + " gecorrigeerd op " + self.datum.strftime("%Y-%m-%d")
 
 
 class Schikking(models.Model):
@@ -31,7 +31,7 @@ class Schikking(models.Model):
     bedrag = models.DecimalField(max_digits=9, decimal_places=2)
 
     def __str__(self):
-        str(self.datum) + " - " + self.product.ticker
+         return self.user.username + " - Schikking van" + self.product.ticker + " ontvangen op " + self.datum.strftime("%Y-%m-%d")
 
 
 class WinstDeelname(models.Model):
@@ -42,7 +42,7 @@ class WinstDeelname(models.Model):
     bedrag = models.DecimalField(max_digits=9, decimal_places=5)
 
     def __str__(self):
-        str(self.datum) + " - " + self.product.ticker
+        return self.user.username + " - Deelname in the winst" + self.product.ticker + " ontvangen op " + self.datum.strftime("%Y-%m-%d")
 
 
 class Splitsing(models.Model):
@@ -51,3 +51,6 @@ class Splitsing(models.Model):
     datum = models.DateField(default=date.today)
     factor = models.IntegerField()
     omgekeerde_splitsing = models.BooleanField()
+
+    def __str__(self):
+        return self.user.username + " - Aandelensplitsing van " + self.product.ticker + " uitgevoerd op " + self.datum.strftime("%Y-%m-%d")

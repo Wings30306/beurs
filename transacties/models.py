@@ -15,7 +15,7 @@ class Aankoop(models.Model):
     koers = models.DecimalField(max_digits=9, decimal_places=5)
 
     def __str__(self):
-        str(self.datum) + " - " + self.product.ticker
+        return self.user.username + " - " + self.product.ticker + " aangekocht op " + self.datum.strftime("%Y-%m-%d")
 
 
 class Verkoop(models.Model):
@@ -26,7 +26,7 @@ class Verkoop(models.Model):
     koers = models.DecimalField(max_digits=9, decimal_places=5)
 
     def __str__(self):
-        str(self.datum) + " - " + self.product.ticker
+         return self.user.username + " - " + self.product.ticker + " verkocht op " + self.datum.strftime("%Y-%m-%d")
 
 
 class Dividend(models.Model):
@@ -36,4 +36,4 @@ class Dividend(models.Model):
     bedrag = models.DecimalField(max_digits=9, decimal_places=2)
 
     def __str__(self):
-        str(self.datum) + " - " + self.product.ticker
+        return self.user.username + " - dividend van " + self.product.ticker + " ontvangen op " + self.datum.strftime("%Y-%m-%d")
