@@ -14,7 +14,7 @@ class ManueleCorrectie(models.Model):
         ("AANKOOP", "Aankoopbedrag"),
         ("VERKOOP", "Verkoopbedrag")
     ]
-    toepassen_op = models.Charfield(
+    toepassen_op = models.CharField(
         max_length=7,
         choices=TOEPASSINGSKEUZES,
         default="AANKOOP")
