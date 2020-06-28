@@ -42,7 +42,8 @@ INSTALLED_APPS = [
 
     # PROJECT APPS
     'producten',
-    'transacties'
+    'transacties',
+    'extras'
 ]
 
 MIDDLEWARE = [
