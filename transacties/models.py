@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 from datetime import date
 
@@ -7,6 +8,7 @@ from producten.models import Product
 
 # Create your models here.
 class Aankoop(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.PROTECT)
     datum = models.DateField(default=date.today)
     aantal = models.IntegerField()
@@ -17,6 +19,7 @@ class Aankoop(models.Model):
 
 
 class Verkoop(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.PROTECT)
     datum = models.DateField(default=date.today)
     aantal = models.IntegerField()
@@ -27,6 +30,7 @@ class Verkoop(models.Model):
 
 
 class Dividend(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.PROTECT)
     datum = models.DateField(default=date.today)
     bedrag = models.DecimalField(max_digits=9, decimal_places=2)

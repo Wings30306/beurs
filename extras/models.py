@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 from datetime import date
 
@@ -24,6 +25,7 @@ class ManueleCorrectie(models.Model):
 
 
 class Schikking(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.PROTECT)
     datum = models.DateField(default=date.today)
     bedrag = models.DecimalField(max_digits=9, decimal_places=2)
@@ -33,6 +35,7 @@ class Schikking(models.Model):
 
 
 class WinstDeelname(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.PROTECT)
     datum = models.DateField(default=date.today)
     aantal = models.IntegerField()
@@ -43,6 +46,7 @@ class WinstDeelname(models.Model):
 
 
 class Splitsing(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.PROTECT)
     datum = models.DateField(default=date.today)
     factor = models.IntegerField()
